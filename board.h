@@ -2,7 +2,7 @@
 #define BOARD_H
 
 #include <vector>
-//#include <stdlib.h>
+
 class RectBoard {
         private:
             int width;

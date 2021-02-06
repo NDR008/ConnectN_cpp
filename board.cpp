@@ -1,5 +1,5 @@
-#include <iostream>
 #include "board.h"
+#include <iostream>
 
 RectBoard::RectBoard(int setWidth, int setHeight){
     RectBoard::width = setWidth;
@@ -16,11 +16,12 @@ void RectBoard::ResetBoard(){
     }
 }
 
-int getWidth(){
-    return RectBoard::width;
+int RectBoard::getWidth(){
+    return width;
 }
-int getHeight(){
-    return RectBoard::height;
+
+int RectBoard::getHeight(){
+    return height;
 }
 
 
