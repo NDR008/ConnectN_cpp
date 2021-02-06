@@ -12,6 +12,8 @@ class RectBoard {
         public:
             RectBoard(int setWidth, int setHeight);
             void ResetBoard();
+            int getWidth();
+            int getHeight();
 };
 #endif
 

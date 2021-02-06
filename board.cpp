@@ -10,10 +10,17 @@ RectBoard::RectBoard(int setWidth, int setHeight){
 void RectBoard::ResetBoard(){
     for (unsigned i = 0; i < RectBoard::width; i++){
         for (unsigned j = 0; j < RectBoard::height; j++){
+                std::cout << "Test";
             board[i][j] = '_';
         }
     }
-    std::cout << "Test";
+}
+
+int getWidth(){
+    return RectBoard::width;
+}
+int getHeight(){
+    return RectBoard::height;
 }
 
 
