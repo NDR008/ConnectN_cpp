@@ -1,8 +1,23 @@
 #include <iostream>
-#include <vector>
-//#include <stdlib.h>
+#include "board.h"
 
-class MyBoard {
+RectBoard::RectBoard(int setWidth, int setHeight){
+    RectBoard::width = setWidth;
+    RectBoard::height = setHeight;
+    void ResetBoard();
+}
+
+void RectBoard::ResetBoard(){
+    for (unsigned i = 0; i < RectBoard::width; i++){
+        for (unsigned j = 0; j < RectBoard::height; j++){
+            board[i][j] = '_';
+        }
+    }
+    std::cout << "Test";
+}
+
+
+/*class MyBoard {
     private:
         int width;
         int height;
@@ -25,9 +40,4 @@ class MyBoard {
         };
 
 };
-
-
-/*
-board = (char **) malloc(sizeof(char *) * N);
-for (unsigned i = 0; i < N; i++) board[i] = (char *) malloc(sizeof(char) * N);
 */

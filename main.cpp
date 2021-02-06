@@ -1,10 +1,9 @@
 #include <iostream>
+#include "board.h"
 
 using namespace std;
 
 int main(){
-    char boardz[];
-    const int rows = 5;
-    const int cols = 5;
-    char board[rows][cols];
+    RectBoard board(5,5);
+    return 0;
 }
