@@ -2,15 +2,15 @@
 #include <iostream>
 
 RectBoard::RectBoard(int setWidth, int setHeight){
-    RectBoard::width = setWidth;
-    RectBoard::height = setHeight;
-    void ResetBoard();
+    width = setWidth;
+    height = setHeight;
+    board[width][height] = ' ';
 }
 
 void RectBoard::ResetBoard(){
     for (unsigned i = 0; i < RectBoard::width; i++){
         for (unsigned j = 0; j < RectBoard::height; j++){
-                std::cout << "Test";
+            std::cout << "Test";
             board[i][j] = '_';
         }
     }
