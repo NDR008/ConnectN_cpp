@@ -1,6 +1,7 @@
 #include "iostream"
 #include "board.h"
 #include "humanPlayer.h"
+#include "aiPlayer.h"
 
 using namespace std;
 
@@ -62,13 +63,14 @@ int main(){
     board.initBoard();
 
     HumanPlayer player1('A', "Player 1");
-    HumanPlayer player2('N', "Player 2");
+    AiPlayer player2('N', "Player 2");
     board.displayBoard();
     while (true) {
         board.makeMove(player1.getUserInput(),player1.getToken());
         board.checkWin(player1.getToken());
         board.displayBoard();
         board.makeMove(player2.getUserInput(),player2.getToken());
+        //player2.readBoard(board);
         board.checkWin(player2.getToken());
         board.displayBoard();
     }
