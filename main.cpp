@@ -63,7 +63,7 @@ int main(){
     board.initBoard();
 
     HumanPlayer player1('A', "Player 1");
-    AiPlayer player2('N', "Player 2");
+    HumanPlayer player2('N', "Player 2");
     board.displayBoard();
     while (true) {
         board.makeMove(player1.getUserInput(),player1.getToken());

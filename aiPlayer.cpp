@@ -1,10 +1,10 @@
 #include "aiPlayer.h"
 
-AiPlayer::AiPlayer(char passToken, std::string passName){
-    token = passToken;
-    name = passName;
+AiPlayer::AiPlayer(char passToken, std::string passName)
+{
     srand(time(nullptr));
 }
+
 
 int AiPlayer::getUserInput(){
     int temp =  (rand());
