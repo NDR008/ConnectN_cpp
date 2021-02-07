@@ -1,5 +1,4 @@
-#ifndef BOARD_H
-#define BOARD_H
+#pragma once
 
 #include <vector>
 
@@ -8,15 +7,21 @@ class RectBoard {
             int width;
             int height;
             std::vector<std::vector<char>> board;
+            int maxMoves;
+            int moveCounter;
+            const int winValue = 4;
 
         public:
             RectBoard(int setWidth, int setHeight);
-            void ResetBoard();
+            void initBoard();
             int getWidth();
             int getHeight();
+            char getTokenAtPos(int row, int col);
+            bool canMove();
+            bool makeMove(int col, char token);
+            bool checkWin(char token);
+            void displayBoard();
 };
-#endif
-
 /*
 board = (char **) malloc(sizeof(char *) * N);
 for (unsigned i = 0; i < N; i++) board[i] = (char *) malloc(sizeof(char) * N);
