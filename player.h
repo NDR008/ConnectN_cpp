@@ -10,7 +10,7 @@ class Player {
 
         public:
             Player(char passToken, std::string passName);
-            int getUserInput();
+            virtual int getUserInput()=0;
             char getToken();
             std::string getName();
             void incWins();
