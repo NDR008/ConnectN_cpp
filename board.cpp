@@ -54,6 +54,9 @@ void RectBoard::displayBoard(){
         std::cout << std::endl;
     }
     std::cout << std::endl;
+    for (int i = 0; i < width; i++){
+        std::cout << i << ' ';
+    }
 }
 
 bool RectBoard::checkWin(char token){
@@ -111,11 +114,6 @@ bool RectBoard::checkWin(char token){
     int numberOfMatchesDiag2 = 0;
     for (int i = -(height - 1); i < width; i++) {
         for (int j = 0; j < height; j++) {
-            /*if(true) { //Code to debug
-                System.out.print("Diag1: " + (i + j + 1) + " " + ((height - 1) - j + 1));
-                System.out.print("  ");
-                System.out.println("Diag2: " + (i + j + 1) + " " + (j + 1));
-            }*/
             int x = i + j;
             int y = (height-1)-j;
             if (!(x >= width || x < 0 || y < 0 || y >= height)) {
