@@ -2,6 +2,7 @@
 
 #include "player.h"
 #include <iostream>
+#include <stdlib.h>
 #include <ctime>
 
 
@@ -13,5 +14,5 @@ public:
     //AiPlayer(char passToken, std::string passName);
     AiPlayer(char passToken, std::string passName);
     int getUserInput();
-    void dummyFunctioN(int takesAint);
+    void readBoard(std::vector<std::vector<char>> board);
 };

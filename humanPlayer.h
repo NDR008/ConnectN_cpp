@@ -7,5 +7,5 @@ class HumanPlayer: public Player{
 public:
     using Player::Player;
     int getUserInput();
-    void dummyFunctioN(int takesAint);
+    void readBoard(std::vector<std::vector<char>> board);
 };

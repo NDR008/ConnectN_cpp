@@ -20,6 +20,10 @@ void RectBoard::initBoard(){
     //board[0][1]=' ';
 }
 
+std::vector<std::vector<char>> RectBoard::getCopyOfBoard(){
+    return board;
+}
+
 int RectBoard::getWidth(){
     return width;
 }
@@ -53,10 +57,10 @@ void RectBoard::displayBoard(){
         }
         std::cout << std::endl;
     }
-    std::cout << std::endl;
     for (int i = 0; i < width; i++){
         std::cout << i << ' ';
     }
+    std::cout << std::endl;
 }
 
 bool RectBoard::checkWin(char token){

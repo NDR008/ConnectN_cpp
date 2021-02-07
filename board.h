@@ -21,6 +21,7 @@ class RectBoard {
             bool makeMove(int col, char token);
             bool checkWin(char token);
             void displayBoard();
+            std::vector<std::vector<char>> getCopyOfBoard();
 };
 /*
 board = (char **) malloc(sizeof(char *) * N);

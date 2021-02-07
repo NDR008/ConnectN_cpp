@@ -9,4 +9,4 @@ int HumanPlayer::getUserInput(){
     return temp;
 }
 
- void HumanPlayer::dummyFunctioN(int takesAint){}
+void HumanPlayer::readBoard(std::vector<std::vector<char>> board){}

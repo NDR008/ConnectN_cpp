@@ -5,11 +5,11 @@ AiPlayer::AiPlayer(char passToken, std::string passName):Player(passToken, passN
 }
 
 int AiPlayer::getUserInput(){
-    int temp =  (rand());
-    //cout << "Choose your move " << getName() << ": ";
-    std::cout << "Choose your move " << name << ": ";
-    std::cin >> temp;
+    int temp;
+    temp = rand() % AiPlayer::maxWidth + 1;
     return temp;
 }
 
- void AiPlayer::dummyFunctioN(int takesAint){}
+void AiPlayer::readBoard(std::vector<std::vector<char>> board){
+    AiPlayer::maxWidth = board[0].size() - 1;
+}
