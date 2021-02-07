@@ -10,10 +10,9 @@ class Player {
             int winCounter=0;
 
         public:
-            //Player();
             Player(char passToken, std::string passName);
             virtual int getUserInput()=0;
-            virtual void readBoard(std::vector<std::vector<char>> board);
+            virtual void dummyFunctioN(int takesAint)=0;
             char getToken();
             std::string getName();
             void incWins();

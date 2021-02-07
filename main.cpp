@@ -8,6 +8,7 @@ using namespace std;
 int main(){
     RectBoard board(4,5);
 
+/*
     // check horizontal
     board.initBoard();
     board.makeMove(1,'B');
@@ -59,11 +60,11 @@ int main(){
     board.makeMove(4,'J');
     board.checkWin('B');
     board.displayBoard();
-
+*/
     board.initBoard();
 
-    HumanPlayer player1('A', "Player 1");
-    HumanPlayer player2('N', "Player 2");
+    HumanPlayer player1('A', "Asuka");
+    AiPlayer player2('N', "Nadir");
     board.displayBoard();
     while (true) {
         board.makeMove(player1.getUserInput(),player1.getToken());

@@ -8,3 +8,5 @@ int HumanPlayer::getUserInput(){
     cin >> temp;
     return temp;
 }
+
+ void HumanPlayer::dummyFunctioN(int takesAint){}

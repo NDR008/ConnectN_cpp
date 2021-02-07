@@ -1,10 +1,8 @@
 #include "aiPlayer.h"
 
-AiPlayer::AiPlayer(char passToken, std::string passName)
-{
+AiPlayer::AiPlayer(char passToken, std::string passName):Player(passToken, passName){
     srand(time(nullptr));
 }
-
 
 int AiPlayer::getUserInput(){
     int temp =  (rand());
@@ -14,7 +12,4 @@ int AiPlayer::getUserInput(){
     return temp;
 }
 
-void AiPlayer::readBoard(std::vector<std::vector<char>> board){
-    maxWidth = board[0].size();
-    std::cout << maxWidth;
-}
+ void AiPlayer::dummyFunctioN(int takesAint){}
