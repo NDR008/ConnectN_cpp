@@ -9,7 +9,7 @@
 using namespace std;
 
 int main(){
-    RectBoard board(4,5);
+    RectBoard board(3,3);
     board.initBoard();
     //vector<Player*> players2;  // this nearly worked but...
     
@@ -23,16 +23,16 @@ int main(){
     std::vector<std::unique_ptr<Player>> players2;
     players2.resize(2);
 
-    players2[0]  = std::make_unique<HumanPlayer>('S', "Sickle");
+    players2[0]  = std::make_unique<AiPlayer>('S', "Sickle");
     players2[1]  = std::make_unique<AiPlayer>('P', "Pixel");
 
     int nextPlayer = 0;
     board.displayBoard();
-    bool run = true;
-    while (run) {
+        while (true) {
         players2[nextPlayer]->readBoard(board.getCopyOfBoard());  
         board.makeMove(players2[nextPlayer]->getUserInput(),players2[nextPlayer]->getToken());  
-        run = board.checkWin(players2[nextPlayer]->getToken()); 
+        if(board.checkWin(players2[nextPlayer]->getToken())) { break; }
+        if(!board.canMove()) {break;}
         cout << endl;
         board.displayBoard();
         nextPlayer++;

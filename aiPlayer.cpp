@@ -6,7 +6,7 @@ AiPlayer::AiPlayer(char passToken, std::string passName):Player(passToken, passN
 
 int AiPlayer::getUserInput(){
     int temp;
-    temp = rand() % AiPlayer::maxWidth + 1;
+    temp = rand() % (AiPlayer::maxWidth+1);
     return temp;
 }
 

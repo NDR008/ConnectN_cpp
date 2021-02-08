@@ -47,6 +47,7 @@ bool RectBoard::makeMove(int col, char token){
             return true;
         }
     }
+    moveCounter++;
     return false;
 }
 

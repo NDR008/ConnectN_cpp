@@ -13,10 +13,9 @@ class Player {
             Player()=default;
             Player(char passToken, std::string passName);
             // if these are non-virtual.... then they would be called instead
-            virtual int getUserInput()=0;
+            //virtual int getUserInput()=0;
             virtual void readBoard(std::vector<std::vector<char>> board)=0;
-
-            //int getUserInput();
+            int getUserInput();
             //void readBoard(std::vector<std::vector<char>> board);
 
             char getToken();
