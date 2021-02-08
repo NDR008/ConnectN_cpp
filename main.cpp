@@ -11,25 +11,32 @@ using namespace std;
 int main(){
     RectBoard board(4,5);
     board.initBoard();
-    vector<std::unique_ptr<Player>> players;
+    //vector<Player*> players2;  // this nearly worked but...
+    
+    //std::unique_ptr<Player> simplerPointer = std::make_unique<HumanPlayer>('S', "Sickle");
+    //obj p1* = &HumanPlayer('A', "Asuka");
+    //HumanPlayer p1 = HumanPlayer('S', "Sickle");
+    //AiPlayer p2 = AiPlayer('P', "Pixel");
+    //players2[0] = &p1;  // with unique_ptry, I do not know how to associate
+    //players2[1] = p2;
+    //players2[0] = std::make_unique<p1>;
+    std::vector<std::unique_ptr<Player>> players2;
+    players2.resize(2);
 
-    while (true) {
-    /*    board.makeMove(player1.getUserInput(),player1.getToken());
-        board.checkWin(player1.getToken());
+    players2[0]  = std::make_unique<HumanPlayer>('S', "Sickle");
+    players2[1]  = std::make_unique<AiPlayer>('P', "Pixel");
+
+    int nextPlayer = 0;
+    board.displayBoard();
+    bool run = true;
+    while (run) {
+        players2[nextPlayer]->readBoard(board.getCopyOfBoard());  
+        board.makeMove(players2[nextPlayer]->getUserInput(),players2[nextPlayer]->getToken());  
+        run = board.checkWin(players2[nextPlayer]->getToken()); 
+        cout << endl;
         board.displayBoard();
-        player2.readBoard(board.getCopyOfBoard());
-        board.makeMove(player2.getUserInput(),player2.getToken());
-        board.checkWin(player2.getToken());
-        board.displayBoard();
-        */
-       /*
-       for (Player& p : players){
-           board.displayBoard();
-           p.readBoard(board.getCopyOfBoard());
-           board.makeMove(p.getUserInput(),p.getToken());
-           board.checkWin(p.getToken());
-       }
-       */
+        nextPlayer++;
+        if (nextPlayer > 1) { nextPlayer = 0; }
     }
     return 0;
 }

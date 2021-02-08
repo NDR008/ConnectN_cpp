@@ -22,3 +22,6 @@ void Player::incWins(){
 int Player::getWins(){
     return winCounter;
 }
+
+// int Player::getUserInput(){std::cout << "OOPS"; return -1;}
+// void Player::readBoard(std::vector<std::vector<char>> board){}
