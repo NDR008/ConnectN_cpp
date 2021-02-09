@@ -101,22 +101,6 @@ bool RectBoard::checkWin(char token){
         numberOfMatches = 0;
     }
 
-
-    numberOfMatches = 0;
-    for (int i = 0; i < width; i++) {
-        for (int j = 0; j < height; j++) {
-            if (board[j][i] == token) {
-                numberOfMatches++;
-            } else {
-                numberOfMatches = 0;
-            }
-            if (numberOfMatches >= winValue) {
-                return true;
-            }
-        }
-        numberOfMatches = 0;
-    }
-
     int numberOfMatchesDiag1 = 0;
     int numberOfMatchesDiag2 = 0;
     for (int i = -(height - 1); i < width; i++) {
@@ -146,7 +130,7 @@ bool RectBoard::checkWin(char token){
                 }
             }
         }
-        //System.out.println();
+
         numberOfMatchesDiag1 = 0;
         numberOfMatchesDiag2 = 0;
     }
