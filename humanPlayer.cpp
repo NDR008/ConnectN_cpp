@@ -6,7 +6,8 @@ int HumanPlayer::getUserInput(){
     int temp;
     cout << "Choose your move " << name << ": ";
     cin >> temp;
+    cout << std::endl;
     return temp;
 }
 
-void HumanPlayer::readBoard(std::vector<std::vector<char>> board){}
+void HumanPlayer::readBoard(const std::vector<std::vector<char>> &board){}

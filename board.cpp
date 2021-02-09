@@ -17,7 +17,6 @@ void RectBoard::initBoard(){
             board[j][i] = '.';
         }
     }
-    //board[0][1]=' ';
 }
 
 std::vector<std::vector<char>> RectBoard::getCopyOfBoard(){
@@ -44,22 +43,28 @@ bool RectBoard::makeMove(int col, char token){
     for (int j = 0; j < height; j++){
         if (board[j][col] == '.'){
             board[j][col] = token;
+            moveCounter++;
             return true;
         }
     }
-    moveCounter++;
     return false;
 }
 
 void RectBoard::displayBoard(){
-    for (int j = height-1; j >= 0; j--){  
+    std::cout << std::endl;
+    for (int j = height-1; j >= 0; j--){
+        std::cout << "| ";
         for (int i = 0; i < width; i++){
-              std::cout << getTokenAtPos(j,i) << ' ';
+              std::cout << getTokenAtPos(j,i) << " | ";
         }
         std::cout << std::endl;
     }
     for (int i = 0; i < width; i++){
-        std::cout << i << ' ';
+        std::cout << "----";
+    }
+    std::cout << "-" << std::endl << "| ";
+    for (int i = 0; i < width; i++){
+        std::cout << i << " | ";
     }
     std::cout << std::endl;
 }
@@ -74,7 +79,6 @@ bool RectBoard::checkWin(char token){
                 numberOfMatches = 0;
             }
             if (numberOfMatches >= winValue) {
-                std::cout << "Oh yeah 1 !!!" << std::endl;
                 return true;
             }
         }
@@ -91,7 +95,6 @@ bool RectBoard::checkWin(char token){
                 numberOfMatches = 0;
             }
             if (numberOfMatches >= winValue) {
-                std::cout << "Oh yeah 2!!!" << std::endl;
                 return true;
             }
         }
@@ -108,7 +111,6 @@ bool RectBoard::checkWin(char token){
                 numberOfMatches = 0;
             }
             if (numberOfMatches >= winValue) {
-                std::cout << "Oh yeah 2!!!" << std::endl;
                 return true;
             }
         }
@@ -128,7 +130,6 @@ bool RectBoard::checkWin(char token){
                     numberOfMatchesDiag1 = 0;
                 }
                 if (numberOfMatchesDiag1 >= winValue) {
-                    std::cout << "Oh yeah 3!!!" << std::endl;
                     return true;
                 }
             }
@@ -141,14 +142,13 @@ bool RectBoard::checkWin(char token){
                     numberOfMatchesDiag2 = 0;
                 }
                 if (numberOfMatchesDiag2 >= winValue) {
-                    std::cout << "Oh yeah 4!!!" << std::endl;
                     return true;
                 }
             }
         }
         //System.out.println();
         numberOfMatchesDiag1 = 0;
-        numberOfMatchesDiag2 =0;
+        numberOfMatchesDiag2 = 0;
     }
     return false;
 }

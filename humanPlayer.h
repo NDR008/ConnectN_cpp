@@ -7,5 +7,5 @@ class HumanPlayer: public Player{
 public:
     using Player::Player;
     int getUserInput();
-    void readBoard(std::vector<std::vector<char>> board);
+    void readBoard(const std::vector<std::vector<char>> &board);
 };

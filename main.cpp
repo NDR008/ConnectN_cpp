@@ -6,37 +6,41 @@
 #include "humanPlayer.h"
 #include "aiPlayer.h"
 
-using namespace std;
+#define TotalPlayers 3
 
 int main(){
-    RectBoard board(3,3);
-    board.initBoard();
-    //vector<Player*> players2;  // this nearly worked but...
+    RectBoard board(7,7);
     
-    //std::unique_ptr<Player> simplerPointer = std::make_unique<HumanPlayer>('S', "Sickle");
-    //obj p1* = &HumanPlayer('A', "Asuka");
-    //HumanPlayer p1 = HumanPlayer('S', "Sickle");
-    //AiPlayer p2 = AiPlayer('P', "Pixel");
-    //players2[0] = &p1;  // with unique_ptry, I do not know how to associate
-    //players2[1] = p2;
-    //players2[0] = std::make_unique<p1>;
-    std::vector<std::unique_ptr<Player>> players2;
-    players2.resize(2);
+    board.initBoard();
 
-    players2[0]  = std::make_unique<AiPlayer>('S', "Sickle");
-    players2[1]  = std::make_unique<AiPlayer>('P', "Pixel");
+    std::vector<std::unique_ptr<Player>> players;
+    players.resize(TotalPlayers);
+
+    players[0]  = std::make_unique<HumanPlayer>('U', "Player 1");
+    players[1]  = std::make_unique<AiPlayer>('P', "Pixel");
+    players[2]  = std::make_unique<AiPlayer>('D', "danhans42");
+    //players[3]  = std::make_unique<AiPlayer>('X', "Skitchin");
+    //players[4]  = std::make_unique<AiPlayer>('G', "Peach");
 
     int nextPlayer = 0;
     board.displayBoard();
         while (true) {
-        players2[nextPlayer]->readBoard(board.getCopyOfBoard());  
-        board.makeMove(players2[nextPlayer]->getUserInput(),players2[nextPlayer]->getToken());  
-        if(board.checkWin(players2[nextPlayer]->getToken())) { break; }
-        if(!board.canMove()) {break;}
-        cout << endl;
+        players[nextPlayer]->readBoard(board.getCopyOfBoard());  
+        while (!board.makeMove(players[nextPlayer]->getUserInput(),players[nextPlayer]->getToken()));  
+        if(board.checkWin(players[nextPlayer]->getToken())) { 
+            board.displayBoard();
+            std::cout << "Player " << players[nextPlayer]->getName() << " won!!!" << std::endl;
+            break;
+        }
+        if(!board.canMove()) {
+            board.displayBoard();
+            std::cout << "Nobody won" << std::endl;
+            break;
+        }
+        std::cout << std::endl;
         board.displayBoard();
         nextPlayer++;
-        if (nextPlayer > 1) { nextPlayer = 0; }
+        if (nextPlayer > TotalPlayers-1) { nextPlayer = 0; }
     }
     return 0;
 }
